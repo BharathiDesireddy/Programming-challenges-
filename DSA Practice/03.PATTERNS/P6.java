@@ -1,4 +1,5 @@
 
+
 import java.util.Scanner;
 
 public class P6 {
@@ -8,3 +9,4 @@ public class P6 {
         int n = s.nextInt();
     }
 }
+
