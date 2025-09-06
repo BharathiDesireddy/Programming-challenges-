@@ -1,16 +1,8 @@
-class Node{
-    int data;
-    Node left,right;
-    Node(int data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
-    }
-}
+
 
 public class LinkedBasicTree{
     Node root;
-    public LinkedBinaryTree(int data){
+    public LinkedBasicTree(int data){
         root=null;
     }
     

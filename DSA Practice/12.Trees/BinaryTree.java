@@ -1,13 +1,8 @@
 import java.util.*;
 
-class Node{
-        int value;
-        Node left;
-        Node right;
-        public Node(int value){
-            this.value=value;
-        }
-    }
+//import org.w3c.dom.Node;
+
+
 
 class BinaryTree{
     public BinaryTree(){
@@ -24,21 +19,21 @@ class BinaryTree{
     }
 
     private void populate(Scanner s, Node node){
-        System.out.println("Do you want to enter left of the node:"+node.value);
+        System.out.println("Do you want to enter left of the node:"+node.data);
         boolean left=s.nextBoolean();
 
         if(left){
-            System.out.println("Enter the left value of the node:"+node.value);
+            System.out.println("Enter the left value of the node:"+node.data);
             int value=s.nextInt();
             node.left=new Node(value);
             populate(s,node.left);
         }
 
-        System.out.println("Do you want to enter right of the node:"+node.value);
+        System.out.println("Do you want to enter right of the node:"+node.data);
         boolean right=s.nextBoolean();
         
         if(right){
-            System.out.println("Enter the left value of the node:"+node.value);
+            System.out.println("Enter the left value of the node:"+node.data);
             int value=s.nextInt();
             node.right=new Node(value);
             populate(s,node.right);
@@ -53,7 +48,7 @@ class BinaryTree{
         if(node==null){
             return;
         }
-        System.out.println(indent+node.value);
+        System.out.println(indent+node.data);
         display(node.left,indent+"\t");
         display(node.right,indent+"\t");
     }
@@ -72,10 +67,10 @@ class BinaryTree{
             for(int i=0;i<level-1;i++){
                 System.out.print("|\t\t");
             }
-            System.out.println("|----------->"+node.value);
+            System.out.println("|----------->"+node.data);
         }
         else{
-            System.out.println(node.value);
+            System.out.println(node.data);
         }
 
         treeDisplay(node.left,level+1);
@@ -83,9 +78,47 @@ class BinaryTree{
 
     public static void main(String[] args) {
         Scanner s=new Scanner(System.in);
-        BinaryTree tree = new BinaryTree();
-        tree.populate(s);
-        tree.display();
-        tree.treeDisplay();
+        /*BinaryTree tree1 = new BinaryTree();
+        tree1.populate(s);
+        tree1.display();
+        tree1.treeDisplay();
+
+        */
+
+
+        BinarySearchTree tree = new BinarySearchTree();
+        Node root = null;
+
+        // Insert elements
+        int[] values = {50, 30, 70, 20, 40, 60, 80};
+        for (int val : values) {
+            root = tree.insert(root, val);
+        }
+
+        //tree.treeDisplay();
+        tree.inOrder(root);
+
+        System.out.println("\nIs 12 Found : "+SearchValue.searchValue(root,12));
+
+        System.out.println("Minimum Value :"+MinMaxInBST.findMin(root));
+
+        System.out.println("Maximum Value :"+MinMaxInBST.findMax(root));
+
+        //deleting cases..
+        root = tree.deleteNode(root, 20); // Case 1: leaf node
+        System.out.print("After deleting 20: ");
+        tree.inOrder(root);
+        System.out.println();
+
+        root = tree.deleteNode(root, 30); // Case 2: one child
+        System.out.print("After deleting 30: ");
+        tree.inOrder(root);
+        System.out.println();
+
+        root = tree.deleteNode(root, 50); // Case 3: two children
+        System.out.print("After deleting 50: ");
+        tree.inOrder(root);
+        System.out.println();
+    
     }
 }
