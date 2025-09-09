@@ -98,6 +98,13 @@ class BinaryTree{
         //tree.treeDisplay();
         tree.inOrder(root);
 
+        //size of the tree
+        System.out.println("\n\nSize of the Binary Search Tree : "+tree.size(root));
+
+        //height of the tree
+
+        System.out.println("Height of the tree : "+tree.height(root));
+
         System.out.println("\nIs 12 Found : "+SearchValue.searchValue(root,12));
 
         System.out.println("Minimum Value :"+MinMaxInBST.findMin(root));
@@ -119,6 +126,8 @@ class BinaryTree{
         System.out.print("After deleting 50: ");
         tree.inOrder(root);
         System.out.println();
+
+        
     
     }
 }

@@ -115,6 +115,27 @@ class BinarySearchTree{
     }
 
 
-   
+    //finding the size of the tree
+
+    public int size(Node node){
+        
+        if (node==null){
+            return 0;
+        }
+
+        return size(node.left)+size(node.right)+1;
+    }   
+
+
+    // height of the tree
+    // Def: the number of edges on the longest path from the root node to the farthest leaf node.
+    public int height(Node node){
+
+        if(node==null){
+            return -1;
+        }
+
+        return Math.max(height(node.left),height(node.right))+1;
+    }
         
 }
