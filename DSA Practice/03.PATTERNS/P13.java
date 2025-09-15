@@ -26,6 +26,8 @@ public class P13 {
         System.out.println("Enter the value of n : ");
         int n = s.nextInt();
 
+        //upper part
+
         for(int i =1; i<=n; i++){
 
         //printing spaces
@@ -43,7 +45,7 @@ public class P13 {
         }
 
         //lower part
-        
+
         for (int i = 2 ; i<=n ; i++){
 
             //printing spaces
